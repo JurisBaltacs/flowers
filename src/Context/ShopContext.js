@@ -9,7 +9,8 @@ export const ShopContextProvider = ({ children }) => {
   const [selectedTypes, setSelectedTypes] = useState([]);
 
   useEffect(() => {
-    const url = "https://blumlinge2.herokuapp.com/api/smallbouquet/";
+    const url =
+      "https://gleimack-flowers.herokuapp.com/https://blumlinge2.herokuapp.com/api/smallbouquet/";
 
     const fetchData = async () => {
       try {
