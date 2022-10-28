@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import Flowers from "../src/Components/Flowers";
 import PriceRange from "./Components/PriceRange";
-import App from "./Components/test";
 import { ShopContextProvider } from "../src/Context/ShopContext";
 import Dropdown from "../src/Components/Dropdown";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -15,12 +14,11 @@ const theme = createTheme({
   },
 });
 
-function AppOriginal() {
+function App() {
   return (
     <ShopContextProvider>
       <ThemeProvider theme={theme}>
         <div className="content-wrapper">
-          {/* <App uniqueTypes={uniqueTypes} items={items} /> */}
           <div className="title">Blume</div>
           <div className="menu__left">
             <div className="blank"></div>
@@ -34,4 +32,4 @@ function AppOriginal() {
   );
 }
 
-export default AppOriginal;
+export default App;

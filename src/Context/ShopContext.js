@@ -5,7 +5,8 @@ const ShopContext = React.createContext();
 export const ShopContextProvider = ({ children }) => {
   const [items, setItems] = useState([]);
   const [dataIsLoaded, setDataIsLoaded] = useState(false);
-  const [sliderValue, setSliderValue] = React.useState([1, 50]);
+  const [sliderValue, setSliderValue] = useState([1, 53]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   useEffect(() => {
     const url = "https://blumlinge2.herokuapp.com/api/smallbouquet/";
@@ -32,7 +33,15 @@ export const ShopContextProvider = ({ children }) => {
     );
 
   return (
-    <ShopContext.Provider value={{ items, sliderValue, setSliderValue }}>
+    <ShopContext.Provider
+      value={{
+        items,
+        sliderValue,
+        setSliderValue,
+        selectedCategories,
+        setSelectedCategories,
+      }}
+    >
       {children}
     </ShopContext.Provider>
   );

@@ -4,20 +4,17 @@ import ShopContext from "../Context/ShopContext";
 import VectorDown from "../Assets/VectorDown";
 
 const MainMenu = () => {
-  const { items, sliderValue } = useContext(ShopContext);
+  const { items, sliderValue, selectedCategories } = useContext(ShopContext);
+
 
   const itemsFiltered = items.filter((item) => {
     if (item.price < sliderValue[0] || item.price > sliderValue[1]) {
-      // Price range check failed
       return false;
     }
 
-    // if (selectedCategories.length && !selectedCategories.includes(item.type)) {
-    //   // Category check failed
-    //   return false;
-    // }
-
-    // Seems that all filter checks was passed
+    if (selectedCategories.length && !selectedCategories.includes(item.type)) {
+      return false;
+    }
     return true;
   });
 
@@ -32,7 +29,9 @@ const MainMenu = () => {
       {itemsFiltered.map((item) => (
         <div className="flowerContainer" key={item.id}>
           <div className="label__flowers--wrapper">
-            <div className="label__flowers--type">{item.type}</div>
+            <div className="label__flowers--type">
+              {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
+            </div>
             <div className="label__flowers--name">{item.name}</div>
           </div>
 
