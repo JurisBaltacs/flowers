@@ -6,19 +6,28 @@ html {
   border-radius: 16px;
   background-color: white;
   margin: 8px 16px;
-  padding: 24px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 250px;
+  min-width: 900px;
 }
 
-.blume {
+.title {
   grid-column-start: 1;
   grid-column-end: 3;
-  margin-bottom: 12px;
   font-weight: 700;
   font-size: 18px;
+  padding: 24px;
+}
+
+.menu__left > div {
+  border-top: 1px solid lightgrey;
+
+}
+
+.menu__left > div:last-of-type {
+  border-bottom: 1px solid lightgrey;
 }
 
 .blank {
-  grid-row: 1 / span 2;
+  height: 48px;
 }

@@ -1,52 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Flowers from "../src/Components/Flowers";
-import Categories from "./Components/Categories";
 import PriceRange from "./Components/PriceRange";
+import App from "./Components/test";
+import { ShopContextProvider } from "../src/Context/ShopContext";
+import Dropdown from "../src/Components/Dropdown";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#494F55",
+    },
+  },
+});
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      items: [],
-      DataisLoaded: false,
-    };
-  }
-
-  componentDidMount() {
-    fetch("https://blumlinge2.herokuapp.com/api/smallbouquet/")
-      .then((res) => res.json())
-      .then((json) => {
-        this.setState({
-          items: json,
-          DataisLoaded: true,
-        });
-      });
-  }
-
-  render() {
-    const { DataisLoaded, items } = this.state;
-    if (!DataisLoaded)
-      return (
-        <div>
-          <h1> Pleses wait some time.... </h1>
+function AppOriginal() {
+  return (
+    <ShopContextProvider>
+      <ThemeProvider theme={theme}>
+        <div className="content-wrapper">
+          {/* <App uniqueTypes={uniqueTypes} items={items} /> */}
+          <div className="title">Blume</div>
+          <div className="menu__left">
+            <div className="blank"></div>
+            <Dropdown />
+            <PriceRange />
+          </div>
+          <Flowers />
         </div>
-      );
-    const uniqueTypes = [...new Set(items.map((item) => item.type))];
-
-    return (
-      <div className="content-wrapper">
-        <div className="blume">Blume</div>
-        <div>
-          <div className="blank">Blank</div>
-          <Categories uniqueTypes={uniqueTypes} /> <PriceRange />
-        </div>
-        <Flowers items={items} />
-      </div>
-    );
-  }
+      </ThemeProvider>
+    </ShopContextProvider>
+  );
 }
 
-export default App;
+export default AppOriginal;

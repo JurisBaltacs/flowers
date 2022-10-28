@@ -1,0 +1,30 @@
+.dropdown-body {
+  padding: 5px 0px;
+  border-top: 1px solid #e5e8ec;
+  display: none;
+}
+
+.dropdown-body.open {
+  display: block;
+  padding: 12px 0px;
+}
+
+.categories {
+  font-weight: 600;
+  color: grey;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 12px 12px 24px;
+
+  min-width: 150px;
+}
+.categories__names {
+  padding-left: 20px;
+  padding-top: 6px;
+}
+
+.categories__names label {
+  font-weight: 500;
+}
