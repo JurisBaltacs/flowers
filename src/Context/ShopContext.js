@@ -5,6 +5,7 @@ const ShopContext = React.createContext();
 export const ShopContextProvider = ({ children }) => {
   const [items, setItems] = useState([]);
   const [dataIsLoaded, setDataIsLoaded] = useState(false);
+  const [sliderValue, setSliderValue] = React.useState([1, 50]);
 
   useEffect(() => {
     const url = "https://blumlinge2.herokuapp.com/api/smallbouquet/";
@@ -29,9 +30,12 @@ export const ShopContextProvider = ({ children }) => {
         <h1> Fetching data.... </h1>
       </div>
     );
-  const uniqueTypes = [...new Set(items.map((item) => item.type))];
 
-  return <ShopContext.Provider value={items}>{children}</ShopContext.Provider>;
+  return (
+    <ShopContext.Provider value={{ items, sliderValue, setSliderValue }}>
+      {children}
+    </ShopContext.Provider>
+  );
 };
 
 export default ShopContext;

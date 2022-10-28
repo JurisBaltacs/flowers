@@ -10,16 +10,14 @@ function valuetext(value) {
 }
 
 export default function RangeSlider() {
-  const [value, setValue] = React.useState([1, 8]);
-  const items = useContext(ShopContext);
-
+  const { items, sliderValue, setSliderValue } = useContext(ShopContext);
   const pricesArray = items.map((item) => item.price);
 
   let min = Math.min(...pricesArray);
   let max = Math.max(...pricesArray);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setSliderValue(newValue);
   };
   return (
     <div className="price-range">
@@ -27,14 +25,16 @@ export default function RangeSlider() {
       <img className="bar-chart" src={Barchart} />
       <Box sx={{ width: 300 }}>
         <Slider
-          value={value}
+          value={sliderValue}
           onChange={handleChange}
           valueLabelDisplay="on"
           getAriaValueText={valuetext}
-          valueLabelFormat={(value) => <div>$ {value}</div>}
+          valueLabelFormat={(sliderValue) => <div>${sliderValue}</div>}
           color="primary"
-          min={min}
-          max={max}
+          // Set the min / max values of the slider to whatever are the min / max 
+          // values of the prices. Use when prices have varying values.
+          // min={min}
+          // max={max}
         />
       </Box>
     </div>

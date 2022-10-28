@@ -7,7 +7,7 @@ import "./Dropdown.css";
 const { useState } = React;
 
 const Dropdown = () => {
-  const items = useContext(ShopContext);
+  const { items } = useContext(ShopContext);
   const [isOpen, setOpen] = useState(false);
 
   const uniqueTypes = [...new Set(items.map((item) => item.type))];

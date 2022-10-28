@@ -15,8 +15,13 @@
 
 .price-range .css-nnid7-MuiSlider-valueLabel {
   top: 50px;
-  color: black;
+  color: #494f55;
   background: transparent;
+}
+
+.price-range .css-16ukvnb-MuiSlider-thumb {
+  width: 12px;
+  height: 12px;
 }
 
 .bar-chart {
