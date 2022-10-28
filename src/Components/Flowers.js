@@ -3,16 +3,15 @@ import "./Flowers.css";
 import ShopContext from "../Context/ShopContext";
 import VectorDown from "../Assets/VectorDown";
 
-const MainMenu = () => {
-  const { items, sliderValue, selectedCategories } = useContext(ShopContext);
-
+const Flowers = () => {
+  const { items, sliderValue, selectedTypes } = useContext(ShopContext);
 
   const itemsFiltered = items.filter((item) => {
     if (item.price < sliderValue[0] || item.price > sliderValue[1]) {
       return false;
     }
 
-    if (selectedCategories.length && !selectedCategories.includes(item.type)) {
+    if (selectedTypes.length && !selectedTypes.includes(item.type)) {
       return false;
     }
     return true;
@@ -44,4 +43,4 @@ const MainMenu = () => {
   );
 };
 
-export default MainMenu;
+export default Flowers;

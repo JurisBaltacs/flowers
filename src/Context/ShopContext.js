@@ -6,7 +6,7 @@ export const ShopContextProvider = ({ children }) => {
   const [items, setItems] = useState([]);
   const [dataIsLoaded, setDataIsLoaded] = useState(false);
   const [sliderValue, setSliderValue] = useState([1, 53]);
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedTypes, setSelectedTypes] = useState([]);
 
   useEffect(() => {
     const url = "https://blumlinge2.herokuapp.com/api/smallbouquet/";
@@ -38,8 +38,8 @@ export const ShopContextProvider = ({ children }) => {
         items,
         sliderValue,
         setSliderValue,
-        selectedCategories,
-        setSelectedCategories,
+        selectedTypes,
+        setSelectedTypes,
       }}
     >
       {children}

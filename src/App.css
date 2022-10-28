@@ -11,7 +11,7 @@ html {
   min-width: 900px;
 }
 
-.title {
+.title__main-page {
   grid-column-start: 1;
   grid-column-end: 3;
   font-weight: 700;

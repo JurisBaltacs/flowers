@@ -19,7 +19,7 @@ function App() {
     <ShopContextProvider>
       <ThemeProvider theme={theme}>
         <div className="content-wrapper">
-          <div className="title">Blume</div>
+          <div className="title__main-page">Blume</div>
           <div className="menu__left">
             <div className="blank"></div>
             <Dropdown />

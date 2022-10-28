@@ -1,4 +1,4 @@
-import React, { useContext, useCallback } from "react";
+import React, { useContext } from "react";
 import ShopContext from "../Context/ShopContext";
 import VectorUp from "../Assets/VectorUp";
 import VectorDown from "../Assets/VectorDown";
@@ -7,18 +7,17 @@ import "./Dropdown.css";
 const { useState } = React;
 
 const Dropdown = () => {
-  const { items, selectedCategories, setSelectedCategories } =
-    useContext(ShopContext);
+  const { items, selectedTypes, setSelectedTypes } = useContext(ShopContext);
   const [isOpen, setOpen] = useState(false);
 
   const uniqueTypes = [...new Set(items.map((item) => item.type))];
   const toggleDropdown = () => setOpen(!isOpen);
 
   const toggleSelectedType = (type) => {
-    if (selectedCategories.includes(type)) {
-      setSelectedCategories(selectedCategories.filter((t) => t !== type));
+    if (selectedTypes.includes(type)) {
+      setSelectedTypes(selectedTypes.filter((t) => t !== type));
     } else {
-      setSelectedCategories([...selectedCategories, type]);
+      setSelectedTypes([...selectedTypes, type]);
     }
   };
 
@@ -36,7 +35,7 @@ const Dropdown = () => {
           <div key={type} className="categories__names">
             <input
               type="checkbox"
-              checked={selectedCategories.includes(type)}
+              checked={selectedTypes.includes(type)}
               onChange={() => toggleSelectedType(type)}
             />
             <label>{type.charAt(0).toUpperCase() + type.slice(1)}</label>
