@@ -13,7 +13,7 @@ export const ShopContextProvider = ({ children }) => {
 
     const fetchData = async () => {
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, { mode: "no-cors" });
         const json = await response.json();
         setItems(json);
         setDataIsLoaded(true);

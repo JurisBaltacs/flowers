@@ -31,7 +31,7 @@ export default function RangeSlider() {
           getAriaValueText={valuetext}
           valueLabelFormat={(sliderValue) => <div>${sliderValue}</div>}
           color="primary"
-          // Set the min / max values of the slider to whatever are the min / max 
+          // Set the min / max values of the slider to whatever are the min / max
           // values of the prices. Use when prices have varying values.
           // min={min}
           // max={max}
