@@ -23,7 +23,6 @@
   margin: 12px 0px;
 }
 
-
 .title__flowers--sort {
   font-size: 12px;
   font-weight: 600;
@@ -74,7 +73,7 @@
 }
 
 .image {
-  max-width: 300px;
+  width: auto;
   max-height: 300px;
   display: block;
   margin-left: auto;
