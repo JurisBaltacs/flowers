@@ -46,7 +46,7 @@ const Flowers = () => {
             handleSort();
           }}
         >
-          Sort by price &nbsp;
+          Sort by name &nbsp;
           {isSortedDescending ? <VectorUp /> : <VectorDown />}
         </div>
       </div>
